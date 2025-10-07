@@ -1,27 +1,39 @@
 using UnityEngine;
 
-public enum CharacterType
+namespace Characters
 {
-    Gunslinger,
-    Archer,
-    Mage
-}
+    /// <summary>
+    /// ScriptableObject that defines a playable character’s base data:
+    /// - Core stats (health, speed)
+    /// - Character type (used to determine weapon & behavior)
+    /// - Visual representation (sprite)
+    /// </summary>
+    [CreateAssetMenu(
+        fileName = "NewCharacterData",
+        menuName = "Game/Character Data",
+        order = 0
+    )]
+    public class CharacterData : ScriptableObject
+    {
+        [Header("Basic Info")]
+        [Tooltip("Display name of the character.")]
+        public string characterName = "Unnamed";
 
-/// <summary>
-/// Defines data for a specific character type.
-/// Stored as a ScriptableObject asset so it can be reused easily.
-/// </summary>
-[CreateAssetMenu(fileName = "NewCharacterData", menuName = "Game/Character Data")]
-public class CharacterData : ScriptableObject
-{
-    [Header("Character Info")]
-    public string characterName;
-    public CharacterType characterType;
+        [Tooltip("Class type used to determine weapon and logic.")]
+        public CharacterType characterType;
 
-    [Header("Stats")]
-    public int maxHealth = 100;
-    public float moveSpeed = 5f;
+        [Header("Stats")]
+        [Tooltip("Maximum health points for this character.")]
+        public int maxHealth = 100;
 
-    [Header("Visuals")]
-    public Sprite characterSprite;
+        [Tooltip("Base movement speed of the character.")]
+        public float moveSpeed = 5f;
+
+        [Header("Visuals")]
+        [Tooltip("Sprite that represents this character in the scene.")]
+        public Sprite characterSprite;
+
+        [Tooltip("Optional icon used for UI / selection menus.")]
+        public Sprite characterIcon;
+    }
 }

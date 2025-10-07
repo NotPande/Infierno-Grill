@@ -1,12 +1,9 @@
-namespace Characters
+/// <summary>
+/// Enum defining all available player classes in the game.
+/// </summary>
+public enum CharacterType
 {
-    /// <summary>
-    /// Defines characters available in the game
-    /// </summary>
-    public enum CharacterType
-    {
-        Gunslinger,
-        Archer,
-        Mage
-    }
+    Gunslinger,
+    Archer,
+    Mage
 }
